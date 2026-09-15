@@ -1,0 +1,180 @@
+:root {
+  --bg-dark: #121826;
+  --bg-get-started: #7d4f1e;
+  --bg-header: #f9fafc;
+  --bg-popular: #263ea9;
+
+  --text-per-month: #858b93;
+  --text-per-plan: #4258b4;
+  --text-white: #ffffff;
+  --text-black: #000000;
+  --primary-color: #121825;
+  --secondary-color: #818fcd;
+  --border-color: #eff0f1;
+  --special-border-color: #171d2b;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+  background-color: var(--text-white);
+  font-family: "Aktifo A", sans-serif;
+}
+.header {
+  height: 9rem;
+  margin: 0;
+  background-color: var(--bg-header);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+  h1,
+  span {
+    background-color: transparent;
+  }
+  h1 {
+    margin-bottom: 10px;
+  }
+  span {
+    font-size: 14px;
+    color: var(--text-per-month);
+  }
+}
+.cols {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding: 10px 6em;
+  .col {
+    display: flex;
+    flex-direction: column;
+    .headers {
+      height: 7em;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        height: auto;
+        color: var(--text-per-month);
+        font-weight: 400;
+      }
+      h1 {
+        margin: 12px 0;
+      }
+      span {
+        color: var(--text-per-plan);
+        font-weight: 600;
+        font-size: 12px;
+      }
+    }
+    .values {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 2em;
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+    .custom {
+      display: flex;
+      align-items: flex-start;
+      background-color: var(--bg-header);
+      border-radius: 12px 0 0 12px;
+      overflow: hidden;
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 10px;
+        font-weight: 600;
+      }
+    }
+    p {
+      display: flex;
+      height: 3em;
+      font-size: 12px;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-per-plan);
+      font-weight: 600;
+    }
+  }
+  .favorite {
+    background-color: var(--bg-dark);
+    border-radius: 12px;
+    .headers {
+      h1,
+      p {
+        background-color: transparent;
+        color: var(--text-white);
+      }
+      span {
+        background-color: var(--bg-popular);
+        padding: 3px 8px;
+        border-radius: 12px;
+        color: var(--text-white);
+        font-size: 12px;
+      }
+    }
+    .values {
+      display: flex;
+      color: var(--text-white);
+      span {
+        border-bottom: 1px solid var(--special-border-color);
+      }
+    }
+    p {
+      background-color: var(--bg-get-started);
+      border-radius: 0 0 12px 12px;
+      color: var(--text-white);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .cols {
+    padding: 10px 1em;
+    .custom {
+      span {
+        white-space: nowrap;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    p {
+      white-space: nowrap;
+      padding: 0 12px;
+    }
+  }
+  .col.free {
+    /* Replace .favorite with your column's class */
+    display: none;
+  }
+}
+@media (max-width: 412px) {
+  .cols {
+    padding: 10px 1em;
+  }
+  .cols .custom span {
+    display: block; /* OVERRIDES display: flex so ellipsis works */
+    width: 100px; /* RESTORES the fixed width constraint */
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .col.team {
+    /* Replace .favorite with your column's class */
+    display: none;
+  }
+}
