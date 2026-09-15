@@ -22,6 +22,8 @@ p {
   font-family: "Aktifo A", sans-serif;
 }
 .header {
+ background-image: url(./resources/bg-pattern.png);
+ background-repeat: no-repeat;
   height: 9rem;
   margin: 0;
   background-color: var(--bg-header);
